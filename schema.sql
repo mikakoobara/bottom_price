@@ -7,7 +7,7 @@ CREATE TABLE products (
   jan_code INTEGER
 );
 
--- わかりやすさのために初期ユーザーを何名か入れておく
+-- サンプルデータを入れておく
 INSERT INTO
   products
 VALUES
