@@ -2,7 +2,7 @@ import sqlite3
 import unittest
 
 
-def get_productname(jan_code):
+def get_product_name(jan_code):
     conn = sqlite3.connect("bottom_price.sqlite")
     cursor = conn.cursor()
 
@@ -32,7 +32,7 @@ def price(jan_code):
 
 class TestBottomPrice(unittest.TestCase):
     def test_janコードを入力したら商品名が返ってくる(self):
-        self.assertEqual("おーいお茶ほうじ茶", get_productname(4901085176146))
+        self.assertEqual("おーいお茶ほうじ茶", get_product_name(4901085176146))
 
     def test_janコードを入力したら金額が返ってくる(self):
         self.assertEqual(129, price(4901085176146))
