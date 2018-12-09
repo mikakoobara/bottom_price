@@ -56,6 +56,19 @@ def find_products(jan_code):
     conn.close()
     return product
 
+
+def update_products(name, price, jan_code):
+    conn = sqlite3.connect("bottom_price.sqlite")
+    cursor = conn.cursor()
+
+    sql = "UPDATE products SET name = ?, price = ? WHERE  jan_code = ?;"
+    cursor.execute(sql, (name, price, jan_code))
+
+    conn.commit()
+    conn.close()
+
+
+
 if __name__ == "__main__":
     init_db()
     print(find_all_products())
