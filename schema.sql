@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS products;
 CREATE TABLE products (
   name TEXT,
   price INTEGER,
-  jan_code INTEGER
+  jan_code TEXT
 );
 
 -- サンプルデータを入れておく

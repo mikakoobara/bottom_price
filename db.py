@@ -18,7 +18,6 @@ def init_db():
 
     cursor.executescript(sql)
     conn.commit()
-
     conn.close()
 
 
@@ -34,6 +33,28 @@ def find_all_products():
     conn.close()
     return products
 
+
+def add_products(name, price, jan_code):
+    conn = sqlite3.connect("bottom_price.sqlite")
+    cursor = conn.cursor()
+
+    sql = "INSERT INTO products (name, price, jan_code) VALUES (?, ?, ?)"
+    cursor.execute(sql, (name, price, jan_code))
+
+    conn.commit()
+    conn.close()
+
+
+def find_products(jan_code):
+    conn = sqlite3.connect("bottom_price.sqlite")
+    cursor = conn.cursor()
+
+    sql = "SELECT * FROM products WHERE jan_code = ?;"
+    product = cursor.execute(sql, (jan_code,)).fetchone()
+
+    conn.commit()
+    conn.close()
+    return product
 
 if __name__ == "__main__":
     init_db()
